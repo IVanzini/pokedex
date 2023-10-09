@@ -1,0 +1,5 @@
+<div *ngIf="pokemon">
+    <h1>{{pokemon.name}}</h1>
+    <app-pokemon-attack *ngFor="let a of pokemon.attacks" [attacco]="a"></app-pokemon-attack>
+</div>
+<a mat-flat-button color="primary" [routerLink]="['/pokemons']">Torna indietro</a>
