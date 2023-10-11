@@ -13,11 +13,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { PokemonsListComponent } from './components/pokemons-list/pokemons-list.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { PokemonAttackComponent } from './components/pokemon-attack/pokemon-attack.component';
+import { PokemonsComponent } from './components/pokemons/pokemons.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { ArticoliListComponent } from './components/articoli-list/articoli-list.component';
+import { ArticoloPreviewComponent } from './components/articolo-preview/articolo-preview.component';
+import { ArticoloDetailComponent } from './components/articolo-detail/articolo-detail.component';
+import { ArticoloAddComponent } from './components/articolo-add/articolo-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +35,15 @@ import { PokemonAttackComponent } from './components/pokemon-attack/pokemon-atta
     MenuComponent,
     PokemonsListComponent,
     PokemonDetailsComponent,
-    PokemonAttackComponent
+    PokemonAttackComponent,
+    PokemonsComponent,
+    BlogComponent,
+    ArticoliListComponent,
+    ArticoloPreviewComponent,
+    ArticoloDetailComponent,
+    ArticoloAddComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +54,8 @@ import { PokemonAttackComponent } from './components/pokemon-attack/pokemon-atta
     MatButtonModule,
     MatListModule,
     MatCardModule,
+    MatFormFieldModule, 
+    MatInputModule,
     FormsModule,
     HttpClientModule
   ],
