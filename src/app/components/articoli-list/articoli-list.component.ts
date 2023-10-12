@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
@@ -6,8 +6,13 @@ import { BlogService } from 'src/app/services/blog.service';
   templateUrl: './articoli-list.component.html',
   styleUrls: ['./articoli-list.component.css']
 })
-export class ArticoliListComponent {
+export class ArticoliListComponent implements OnInit {
   constructor(private bs: BlogService) {
     
+  }
+  ngOnInit(): void {
+    this.bs.getArticoli().subscribe(articoli => {
+      console.log(articoli);
+    });
   }
 }

@@ -34,8 +34,17 @@ export class AuthService {
     let userStorage = localStorage.getItem("user");
     if (userStorage) {
       let u: LoggedUser = JSON.parse(userStorage);
+      console.log(u);
       return u;
     }
     return null;
+  }
+
+  get isUserLogged(): boolean {
+    return this.getLoggedUser() != null;
+  }
+
+  logout() {
+    localStorage.removeItem("user");
   }
 }
