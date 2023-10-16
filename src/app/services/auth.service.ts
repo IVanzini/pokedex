@@ -13,17 +13,17 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   login(model: LoginDTO) :Observable<LoggedUser> {
-    return this.http.post<LoggedUser>(environment.JSON_SERVER_BASE_URL + "/login", model)
-    .pipe(
-      catchError(gestisciErrore<LoggedUser>("login", undefined))
-    );
+    return this.http.post<LoggedUser>(environment.JSON_SERVER_BASE_URL + "/login", model);
+    // .pipe(
+    //   catchError(gestisciErrore<LoggedUser>("login", undefined))
+    // );
   }
 
   register(model: RegisterDTO) :Observable<LoggedUser> {
-    return this.http.post<LoggedUser>(environment.JSON_SERVER_BASE_URL + "/register", model)
-    .pipe(
-      catchError(gestisciErrore<LoggedUser>("register", undefined))
-    );
+    return this.http.post<LoggedUser>(environment.JSON_SERVER_BASE_URL + "/register", model);
+    // .pipe(
+    //   catchError(gestisciErrore<LoggedUser>("register", undefined))
+    // );
   }
 
   setLoggedUser(user: LoggedUser) {
