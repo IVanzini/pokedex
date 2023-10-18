@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, of } from 'rxjs';
 import { Articolo } from 'src/app/models/articolo';
 import { BlogService } from 'src/app/services/blog.service';
@@ -12,11 +13,15 @@ import { BlogService } from 'src/app/services/blog.service';
 export class ArticoliListComponent implements OnInit {
   articoli: Articolo[] = [];
   errorMessage = "";
-  constructor(private bs: BlogService) {
+  constructor(private bs: BlogService, private snackBar: MatSnackBar) {
     
   }
   ngOnInit(): void {
-    // this.bs.getArticoli().subscribe(articoli => {
+    this.getArticoli();
+  }
+
+  getArticoli() {
+  // this.bs.getArticoli().subscribe(articoli => {
     //   console.log(articoli);
     // });
     //alternativa 1
@@ -46,6 +51,14 @@ export class ArticoliListComponent implements OnInit {
     //     }
     //   }
     // })
+  }
+
+  elimina(id: number) {
+    this.bs.deleteArticoloById(id).subscribe(articolo => {
+      //console.log(articolo);
+      this.snackBar.open("Articolo eliminato con successo", "OK");
+      this.getArticoli();
+    });
   }
 }
 

@@ -15,6 +15,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { PokemonsListComponent } from './components/pokemons-list/pokemons-list.component';
@@ -56,6 +59,9 @@ import { RegisterComponent } from './components/register/register.component';
     MatCardModule,
     MatFormFieldModule, 
     MatInputModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatSelectModule,
     FormsModule,
     HttpClientModule
   ],

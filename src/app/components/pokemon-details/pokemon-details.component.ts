@@ -16,7 +16,7 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
   constructor(private ps: PokemonsService, private route: ActivatedRoute) {}
   
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get("id");
+    const id = this.route.snapshot.paramMap.get("codice");
     if (id) {
       this.searchById(id);
     }

@@ -1,1 +1,9 @@
-<p>articolo-preview works!</p>
+<mat-card *ngIf="articolo">
+    <mat-card-content>
+        {{articolo.title}}
+    </mat-card-content>
+    <mat-card-actions>
+    <a mat-button [routerLink]="['/blog', articolo.id]">Vai al dettaglio</a>
+    <button mat-button color="warn" (click)="elimina()">Elimina</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Articolo } from 'src/app/models/articolo';
+import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'app-articolo-preview',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./articolo-preview.component.css']
 })
 export class ArticoloPreviewComponent {
+  @Input()
+  articolo?: Articolo;
 
+  @Output()
+  onRichiestaCancellazione = new EventEmitter<number>();
+
+  elimina() {
+    this.onRichiestaCancellazione.emit(this.articolo!.id)
+  }
 }
+
+
