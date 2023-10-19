@@ -19,14 +19,14 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Pokemon</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let p of pokemons" [value]="model.pokemonId">
+            <mat-select name="pokemonId" [(ngModel)]="model.pokemonId">
+              <mat-option *ngFor="let p of pokemons" [value]="p.id">
                 {{p.name}}
               </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-checkbox #published="ngModel" [(ngModel)]="model.published" name="published">Pubblicato</mat-checkbox>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!laForm.form.valid">Aggiungi</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!laForm.valid">Aggiungi</button>
     </form>  
     <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error> 
 

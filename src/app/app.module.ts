@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -31,6 +31,8 @@ import { ArticoloDetailComponent } from './components/articolo-detail/articolo-d
 import { ArticoloAddComponent } from './components/articolo-add/articolo-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ArticoloModifyComponent } from './components/articolo-modify/articolo-modify.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { RegisterComponent } from './components/register/register.component';
     ArticoloDetailComponent,
     ArticoloAddComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ArticoloModifyComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,9 @@ import { RegisterComponent } from './components/register/register.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

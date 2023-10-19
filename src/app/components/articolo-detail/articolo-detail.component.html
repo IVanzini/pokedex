@@ -1,3 +1,17 @@
-<pre>
-    {{articolo | json}}
-</pre>
+<mat-card *ngIf="articolo">
+    <mat-card-header>
+        <mat-card-title>
+            {{articolo.title}}
+        </mat-card-title>
+</mat-card-header>
+    <mat-card-content>
+        <p>
+            {{articolo.text}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-button *ngIf="articolo.pokemonId" [routerLink]="['/pokemons', articolo.pokemonId]">
+            Vai al pokemon
+        </a>
+    </mat-card-actions>
+</mat-card>

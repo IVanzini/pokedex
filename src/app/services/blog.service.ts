@@ -25,12 +25,12 @@ export class BlogService {
   // }
 
   getArticoli() :Observable<Articolo[]> {
-      const httpOptions = {
-        headers: new HttpHeaders({
-          "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
-        })
-      }
-      return this.http.get<Articolo[]>(environment.JSON_SERVER_BASE_URL + "/articoli", httpOptions)
+      // const httpOptions = {
+      //   headers: new HttpHeaders({
+      //     "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
+      //   })
+      // }
+      return this.http.get<Articolo[]>(environment.JSON_SERVER_BASE_URL + "/articoli")
       .pipe(
         tap(articoli => console.log(articoli.length + " articoli ricevuti dal server")),
         tap({ error: (e: HttpErrorResponse) => console.error("servizio: ", e.message)})
@@ -38,29 +38,38 @@ export class BlogService {
   }
 
   nuovoArticolo(model: NuovoArticoloDto) : Observable<Articolo> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
-      })
-    }
-    return this.http.post<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli", model, httpOptions);
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
+    //   })
+    // }
+    return this.http.post<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli", model);
   }
 
   getArticoloById(id: number) : Observable<Articolo> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
-      })
-    }
-    return this.http.get<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli/" + id, httpOptions);
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
+    //   })
+    // }
+    return this.http.get<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli/" + id);
   }
 
   deleteArticoloById(id: number) : Observable<Articolo> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
-      })
-    }
-    return this.http.delete<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli/" + id, httpOptions);
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
+    //   })
+    // }
+    return this.http.delete<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli/" + id);
   }
+
+  // modifyArticoloById(id: number) : Observable<Articolo> {
+  //   // const httpOptions = {
+  //   //   headers: new HttpHeaders({
+  //   //     "Authorization": "Bearer " + this.authService.getLoggedUser()?.accessToken
+  //   //   })
+  //   // }
+  //   return this.http.patch<Articolo>(environment.JSON_SERVER_BASE_URL + "/articoli/" + id);
+  // }
 }
