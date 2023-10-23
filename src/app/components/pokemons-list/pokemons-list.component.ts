@@ -20,7 +20,7 @@ export class PokemonsListComponent implements OnInit {
   }
 
   search() {
-    this.ps.search(3, this.currentPage+1).subscribe(dati => {
+    this.ps.search(20, this.currentPage+1).subscribe(dati => {
       console.log(dati);
       this.pokemons.push(...dati.data);
       this.currentPage = dati.page;

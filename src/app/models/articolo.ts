@@ -16,3 +16,12 @@ export class NuovoArticoloDto {
         public pokemonId: string = ""
     ) {}
 }
+
+export class ModificaArticoloDto {
+    constructor(
+        public title: string = "",
+        public text: string = "",
+        public published: boolean = false,
+        public pokemonId: string = ""
+    ) {}
+}

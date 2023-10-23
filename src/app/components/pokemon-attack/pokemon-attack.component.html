@@ -1,6 +1,6 @@
 <mat-card *ngIf="attack">
     <mat-card-header>
-        <mat-card-title>{{attack.name}} ({{attack.damage}} damage)</mat-card-title>
+        <mat-card-title>{{attack.name}} ({{attack.damage}} damage) {{attack.name | iniziali:"_"}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <mat-list>

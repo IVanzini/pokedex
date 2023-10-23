@@ -1,5 +1,5 @@
 <mat-list>
-    <a mat-list-item *ngFor="let p of pokemons" routerLink="/pokemons/{{p.id}}">
+    <a mat-list-item *ngFor="let p of pokemons | startsWith:'C'" routerLink="/pokemons/{{p.id}}">
         <span matListItemTitle>{{p.name}}</span>
         <span>{{p.types[0]}}</span>
     </a>
