@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModificaArticoloDto } from 'src/app/models/articolo';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Articolo, ModificaArticoloDto } from 'src/app/models/articolo';
 import { Pokemon } from 'src/app/models/pokemon';
+import { BlogService } from 'src/app/services/blog.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
@@ -9,22 +11,30 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./articolo-modify.component.css']
 })
 export class ArticoloModifyComponent implements OnInit {
-  errorMessage = "";
   model?: ModificaArticoloDto;
+  errorMessage = "";
   pokemons: Pokemon[] = [];
 
-  constructor(private ps: PokemonsService) {}
+  constructor(private bs: BlogService, 
+    private route: ActivatedRoute,
+    private ps: PokemonsService,
+    private router: Router) {
 
+  }
   ngOnInit(): void {
-    this.ps.search(20).subscribe(pokemons => {
-        this.pokemons = pokemons.data;
-      }
-    )
+    const id = Number(this.route.snapshot.paramMap.get("id"));
+    this.ps.search(10).subscribe(dati => {
+      this.pokemons = dati.data;
+
+      this.bs.getArticoloEditById(id).subscribe(articolo => {
+        this.model = articolo;
+      })
+    });
   }
 
-  getArticoloById(id: number) {
-
+  modificaArticolo() {
+    this.bs.modifyArticoloById(this.model!.id, this.model!).subscribe(articolo => {
+      this.router.navigate(["blog"]);
+    });
   }
-
-  modificaArticolo() {}
 }

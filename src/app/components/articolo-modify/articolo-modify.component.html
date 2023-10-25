@@ -1,4 +1,4 @@
-<h1>Modifica articolo</h1>
+<h1 *ngIf="model">Modifica articolo id {{model.id}}</h1>
     <form #laForm="ngForm" class="auth" (ngSubmit)="modificaArticolo()" *ngIf="model">
         <mat-form-field appearance="fill">
             <mat-label>Titolo</mat-label>
@@ -26,9 +26,11 @@
             </mat-select>
         </mat-form-field>
         <mat-checkbox #published="ngModel" [(ngModel)]="model.published" name="published">Pubblicato</mat-checkbox>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!laForm.valid">Modifica</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!laForm.valid">Salva</button>
+        
     </form>  
     <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error> 
+    
 
 
 

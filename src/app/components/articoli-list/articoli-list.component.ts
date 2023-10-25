@@ -60,6 +60,13 @@ export class ArticoliListComponent implements OnInit {
       this.getArticoli();
     });
   }
+
+  pubblica(id: number) {
+    this.bs.publishArticoloById(id).subscribe(articolo => {
+      this.snackBar.open("Articolo pubblicato con successo", "OK");
+      this.getArticoli();
+    });
+  }
 }
 
 
