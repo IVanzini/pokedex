@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { PokemonsListComponent } from './components/pokemons-list/pokemons-list.component';
@@ -35,6 +36,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ArticoloModifyComponent } from './components/articolo-modify/articolo-modify.component';
 import { InizialiPipe } from './pipes/iniziali.pipe';
 import { StartsWithPipe } from './pipes/starts-with.pipe';
+import { TitleEditorComponent } from './components/title-editor/title-editor.component';
+import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { StartsWithPipe } from './pipes/starts-with.pipe';
     RegisterComponent,
     ArticoloModifyComponent,
     InizialiPipe,
-    StartsWithPipe
+    StartsWithPipe,
+    TitleEditorComponent,
+    ProfileEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,9 @@ import { StartsWithPipe } from './pipes/starts-with.pipe';
     MatCheckboxModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatMenuModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [

@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { loggedGuard } from './guards/logged.guard';
 import { adminGuard } from './guards/admin.guard';
 import { ArticoloModifyComponent } from './components/articolo-modify/articolo-modify.component';
+import { TitleEditorComponent } from './components/title-editor/title-editor.component';
+import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component';
 
 const routes: Routes = [
   // {
@@ -23,7 +25,12 @@ const routes: Routes = [
   //   redirectTo:"/pokemons", pathMatch:"full"
   // },
   // {path:"pokemons/:id", component: PokemonDetailsComponent}
-
+  {
+    path:"title-editor", component: TitleEditorComponent
+  },
+  {
+    path:"profile-editor", component: ProfileEditorComponent
+  },
   {
     path:"", 
     redirectTo:"/pokemons", pathMatch:"full"

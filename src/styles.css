@@ -16,7 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 80vh;
 }
 
-form.auth {
+.auth {
     width: 400px;
     display: flex;
     flex-direction: column;
