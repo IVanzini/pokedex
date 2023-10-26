@@ -14,6 +14,8 @@ import { adminGuard } from './guards/admin.guard';
 import { ArticoloModifyComponent } from './components/articolo-modify/articolo-modify.component';
 import { TitleEditorComponent } from './components/title-editor/title-editor.component';
 import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component';
+import { ProfileEditorBuilderComponent } from './components/profile-editor-builder/profile-editor-builder.component';
+import { LoginReactiveComponent } from './components/login-reactive/login-reactive.component';
 
 const routes: Routes = [
   // {
@@ -32,11 +34,14 @@ const routes: Routes = [
     path:"profile-editor", component: ProfileEditorComponent
   },
   {
+    path:"profile-editor-builder", component: ProfileEditorBuilderComponent
+  },
+  {
     path:"", 
     redirectTo:"/pokemons", pathMatch:"full"
   },
   {
-    path:"login", component: LoginComponent
+    path:"login", component: LoginReactiveComponent
   },
   {
     path:"register", component: RegisterComponent

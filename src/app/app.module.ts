@@ -38,6 +38,8 @@ import { InizialiPipe } from './pipes/iniziali.pipe';
 import { StartsWithPipe } from './pipes/starts-with.pipe';
 import { TitleEditorComponent } from './components/title-editor/title-editor.component';
 import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component';
+import { ProfileEditorBuilderComponent } from './components/profile-editor-builder/profile-editor-builder.component';
+import { LoginReactiveComponent } from './components/login-reactive/login-reactive.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ProfileEditorComponent } from './components/profile-editor/profile-edit
     InizialiPipe,
     StartsWithPipe,
     TitleEditorComponent,
-    ProfileEditorComponent
+    ProfileEditorComponent,
+    ProfileEditorBuilderComponent,
+    LoginReactiveComponent
   ],
   imports: [
     BrowserModule,
